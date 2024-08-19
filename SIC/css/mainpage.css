@@ -1,0 +1,316 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("../image/hcmute.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.navbar {
+    background-color: rgba(227, 242, 253, 0.9);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.navbar .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+    margin: auto;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .menu a.main-page {
+    font-weight: bolder;
+    color: #ff0000;
+}
+
+.navbar .menu a:hover {
+    color: #007bff;
+    transform: translateY(-2px);
+}
+
+.navbar .profile {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+    position: relative;
+}
+
+.navbar .profile img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.navbar .profile img:hover {
+    transform: scale(1.1);
+}
+
+.navbar .profile .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
+    text-align: left;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.navbar .profile .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .profile .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar .profile:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    padding-top: 80px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #e0dbdb, #ad7474);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    border-radius: 10px;
+    position: relative;
+    flex-direction: row;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #888;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f4f8;
+    border-right: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar label {
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sidebar .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.main {
+    flex: 5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.io-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-grow: 1;
+    height: calc(100% - 40px);
+}
+
+.input, .output {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #333;
+    background-color: #f0f4f8;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.input {
+    background-color: #e1f7f9;
+}
+
+.output {
+    background-color: #e8f5e9;
+}
+
+.input img, .output img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.drop-area {
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #e9f7fe;
+    text-align: center;
+    height: auto;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.drop-area .area {
+    font-size: 18px;
+    color: hsl(211, 100%, 50%);
+    line-height: normal;
+}
+
+.drop-area:hover {
+    background-color: #d6f0fa;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.go-btn {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.go-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.main-content h1 {
+    font-size: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px #000;
+}

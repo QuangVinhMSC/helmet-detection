@@ -1,0 +1,7 @@
+fastapi 
+loguru 
+opencv-python 
+ultralytics 
+uvicorn
+python-multipart
+moviepy == 1.0.3
